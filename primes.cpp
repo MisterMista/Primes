@@ -11,7 +11,7 @@ int main(void){
 unsigned int amount;	//number of prime numbers to generate
 unsigned int number = 2;	//reference of current number
 vector<unsigned int> primes;	//vector that holds all the generated prime numbers
-bool numberGood = 1;	//boolean that stores if number is prime
+bool isPrime = 1;	//boolean that stores if number is prime
 
 cout<<"Calculate n prime numbers:";
 cin>>amount;
@@ -27,14 +27,14 @@ if (amount >= 2){
 	start = chrono::system_clock::now();	//timer is started
 	while(primes.size() < amount){
 	//for(unsigned int i = 3; i <= amount; ++i){	//old code
-		numberGood = 1;
+		isPrime = 1;
 		for (unsigned int j = 0; j < sqrt(double(primes.size())); ++j) {
 			if (number % primes[j] == 0){	//if the current number can be divided by any other prime, it is not prime
-				numberGood = 0;
+				isPrime = 0;
 				break;
 			}
 		}
-		if (numberGood){
+		if (isPrime){
 			primes.push_back(number);
 		}
 		++number;
